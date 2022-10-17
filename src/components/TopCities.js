@@ -18,8 +18,8 @@ function TopCities({baseUrl}) {
         <h2 className='header-top-cities'>Student accommodations in our top cities</h2>
         <div className='card-container'>
             {
-            city.map((item)=>{
-                return <CityCard item={item}/>})
+            city.map((item, index)=>{
+                return <CityCard item={item} index={index}/>})
             }
         </div>
     </div>

@@ -1,6 +1,6 @@
 .card{
-    height: 200px;
-    width: 300px;
+    height: 300px;
+    width: 400px;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -28,4 +28,19 @@
 .number-properties{
     color: var(--text-white);
     z-index: 1;
+}
+
+@media (max-width: 1252px){
+    .last-card{
+        display:none;
+    }
+}
+
+@media (max-width: 825px){
+    
+    .card{
+        height: 225px;
+        width: 300px;
+    }
+
 }

@@ -5,7 +5,7 @@ import AccommodationFilter from '../components/AccommodationFilter'
 import AccommodationList from '../components/AccommodationList'
 import Students from '../assets/students.png'
 
-function CitiesDetailsPage() {
+function CitiesDetailsPage({baseUrl}) {
 
   const bannerHeader = 'Search Accommodation'
   const bannerText = 'Whatever you’re after, we can help you find the right student accommodation for you. '
@@ -14,15 +14,17 @@ function CitiesDetailsPage() {
     <div className='cities-details-container'>
 
         <Banner bannerHeader={bannerHeader} bannerText={bannerText}/>
-        <AccommodationFilter/>
+
+        <AccommodationFilter baseUrl={baseUrl}/>
+
         <AccommodationList/>
 
         <div className='students'>
           <div className='students-left'>
-            <h2 className='students-header'>Being a student in Leeds</h2>
-            <p className='students-paragraph'>Leeds is a lively and multicultural city with a large student population. It is quite a compact city, so it is easy to get around and has a community feel. Leeds is the perfect mix of city and town life and has something to offer to anyone who calls it home.</p>
+            <h2 className='students-header'>Being a student in CITY API</h2>
+            <p className='students-paragraph'>STUDENT LIFE CITY API</p>
             <br></br>
-            <p className='students-paragraph'>Leeds is home to three universities, the University of Leeds, Leeds Trinity University and Leeds Beckett University</p>
+            <p className='students-paragraph'>UNIVERSITIES CITY API</p>
           </div>
           <img src={Students} alt='Group of students'/>
         </div>

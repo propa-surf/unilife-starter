@@ -7,7 +7,7 @@ function SearchByCity({baseUrl}) {
     const [city, setCity] = useState([])
 
     useEffect(()=>{
-      axios.get(`${baseUrl}cities?limit=20`)
+      axios.get(`${baseUrl}cities?limit=24`)
       .then(res =>{setCity(res.data.response)})
       .catch(err=>console.log(err))
     },[])
