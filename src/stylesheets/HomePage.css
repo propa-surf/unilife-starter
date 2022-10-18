@@ -134,3 +134,46 @@
     top: 20px;
     width: 300px;
 }
+
+@media (max-width: 825px){
+
+    .see-all-cities{
+        margin: 40px 0px 0px 0px;
+    }
+    
+    .explanation-header{
+        margin: 56px 16px;
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .explanation-specification-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search, .compare, .bills{
+        width: 35%;
+        margin: 0px 16px 72px 16px;
+    }
+
+    .search-and-compare{
+        justify-content: center;
+        margin: 0px 0px 36px 0px;
+    }
+
+    .selection-icon, .favorite-icon, .selection-header, .favorite-header, .selection-text, .favorite-text{
+        display:none;
+    }
+
+    .left-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .right-container img{
+        display:none;
+    }
+    
+    }

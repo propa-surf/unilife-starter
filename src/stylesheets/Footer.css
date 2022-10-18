@@ -104,3 +104,30 @@
     position: relative;
     top: 2px;
 }
+
+@media (max-width: 825px){
+
+    .keep-in-touch{
+        width: 70%;
+    }
+
+    .keep-in-touch button{
+        width: 65%;
+    }
+
+    .copyright-container-left{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .copyright-container-left a{
+        margin-bottom: 8px;
+    }
+
+    .copyright-container-right{
+        height: 100%;
+        margin-bottom: 16px;
+        align-items: flex-end;
+    }
+
+}

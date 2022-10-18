@@ -13,9 +13,8 @@
 }
 
 .select-city-homes, .select-bedrooms{
-    max-width: 250px;
-    min-width:170px;
-    padding: 8px 40px 8px 8px;
+    min-width:160px;
+    padding: 8px 30px 8px 8px;
     border-radius: 8px;
     margin-right: 16px;
     font-size: 16px;
@@ -24,11 +23,26 @@
 
 .submit{
     font-size: 16px;
-    max-width:160px;
     min-width: 130px;
     height: 32px;
     background: var(--dark-blue);
     border: none;
     color: var(--text-white);
     border-radius: 8px;
+}
+
+@media (max-width: 480px){
+    
+    .find-homes-container{
+        bottom: 80px;
+        width: 275px;
+        height: 165px;
+        flex-direction: column;
+    }
+
+    .select-city-homes, .select-bedrooms{
+        margin-right: 0px;
+        margin-bottom: 8px;
+    }
+
 }

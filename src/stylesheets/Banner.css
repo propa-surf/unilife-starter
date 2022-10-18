@@ -39,3 +39,25 @@
     background-color: black;
     opacity: 45%;
 }
+
+@media (max-width: 825px){
+
+    .banner-container h1{
+        color: var(--text-white);
+        font-size: 40px;
+        font-weight: 400;
+        width:70%;
+        text-align: center;
+        margin-bottom: 32px;
+        z-index: 1;
+    }
+
+    .banner-container p{
+        color: var(--text-white);
+        font-size: 20px;
+        width:70%;
+        text-align: center;
+        z-index: 1;
+    }
+    
+}
