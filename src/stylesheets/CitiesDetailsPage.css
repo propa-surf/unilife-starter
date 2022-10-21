@@ -6,7 +6,7 @@
 
 .students{
     background-color: var(--secondary-color-bg);
-    width: 80%;
+    width: 90%;
     border-radius: 16px;
     margin: 40px 0px;
     display: flex;
@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 50%;
     margin: 16px 16px;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .students img{
-    width: 60%;
+    width: 50%;
     margin: 48px;
     border-radius: 16px;
 }

@@ -1,0 +1,55 @@
+.filter-container{
+    background-color: var(--bg-white);
+    position: relative;
+    bottom: 50px;
+    max-width: 98%;
+    height: 100px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 4px var(--secondary-color-text);
+    padding: 16px;
+}
+
+.bedroom-container, .bathroom-container, .max-price-container, .home-type-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-container label{
+    margin-bottom: 8px;
+}
+
+.select-bedrooms, .select-bathrooms, .select-max-price{
+    min-width:160px;
+    padding: 8px 30px 8px 8px;
+    margin-right: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    border-color: var(--secondary-color-text);
+}
+
+.select-home-type{
+    min-width:160px;
+    padding: 8px 30px 8px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    border-color: var(--secondary-color-text);
+}
+
+@media (max-width: 480px){
+    
+    .filter-container{
+        bottom: 80px;
+        width: 275px;
+        height: 165px;
+        flex-direction: column;
+    }
+
+    .select-bedrooms, .select-bathrooms, .select-max-price, .select-home-type{
+        margin-right: 0px;
+        margin-bottom: 8px;
+    }
+
+}
