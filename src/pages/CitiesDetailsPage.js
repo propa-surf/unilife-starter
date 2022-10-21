@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react'
 import Banner from '../components/Banner'
 import '../stylesheets/CitiesDetailsPage.css'
 import AccommodationFilter from '../components/AccommodationFilter'
-import AccommodationList from '../components/AccommodationList'
 import Students from '../assets/students.png'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
+import AccommodationList from '../components/AccommodationList'
 
 function CitiesDetailsPage({baseUrl}) {
 
@@ -20,16 +20,15 @@ function CitiesDetailsPage({baseUrl}) {
     .then(res => {setCityDetails(res.data.data[0])})
     .catch(err=>console.log(err))
   }, [])
-  
 
   return (
     <div className='cities-details-container'>
 
         <Banner bannerHeader={bannerHeader} bannerText={bannerText}/>
 
-        <AccommodationFilter baseUrl={baseUrl}/>
+        <AccommodationFilter/>
 
-        <AccommodationList/>
+        <AccommodationList baseUrl={baseUrl}/>
 
         <div className='students'>
           <div className='students-left'>

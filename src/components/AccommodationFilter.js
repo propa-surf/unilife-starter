@@ -3,7 +3,9 @@ import '../stylesheets/AccommodationFilter.css'
 
 function AccommodationFilter() {
   return(
+
     <form className='filter-container'>
+      
       <div className='bedroom-container'>
         <label for="select-bedrooms">Bedroom</label>
         <select className='select-bedrooms'>

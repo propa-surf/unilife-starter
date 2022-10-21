@@ -1,9 +1,11 @@
 import React from 'react'
 import '../stylesheets/AccommodationCard.css'
 
-function AccommodationCard() {
+function AccommodationCard({item}) {
   return (
-    <div>AccommodationCard</div>
+    <div>
+        <p>{item._id}</p>
+    </div>
   )
 }
 
