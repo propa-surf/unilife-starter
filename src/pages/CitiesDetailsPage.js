@@ -28,7 +28,7 @@ function CitiesDetailsPage({baseUrl}) {
 
         <AccommodationFilter/>
 
-        <AccommodationList baseUrl={baseUrl}/>
+        <AccommodationList baseUrl={baseUrl} cityDetails={cityDetails}/>
 
         <div className='students'>
           <div className='students-left'>

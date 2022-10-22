@@ -21,7 +21,10 @@
     border-color: var(--secondary-color-text);
 }
 
-.submit{
+.find{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     min-width: 130px;
     height: 32px;

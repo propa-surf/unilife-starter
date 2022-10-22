@@ -19,8 +19,9 @@ function TopCities({baseUrl}) {
         <div className='card-container'>
             {
             city.map((item, index)=>{
-                return <CityCard item={item} index={index}/>})
-            }
+                return <CityCard item={item} index={index} key={item._id}/>
+            })
+          }
         </div>
     </div>
   )
