@@ -5,7 +5,8 @@ import AccommodationFilter from '../components/AccommodationFilter'
 import Students from '../assets/students.png'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
-import AccommodationList from '../components/AccommodationList'
+import AccommodationCard from '../components/AccommodationCard'
+// import AccommodationList from '../components/AccommodationList'
 
 function CitiesDetailsPage({baseUrl}) {
 
@@ -14,6 +15,11 @@ function CitiesDetailsPage({baseUrl}) {
 
   const {id} = useParams()
   const [cityDetails, setCityDetails] = useState({})
+  const [cityProperties, setCityProperties] = useState([])
+  const [bedroom, setBedroom] = useState([])
+  const [bathroom, setBathroom] = useState([])
+  const [price, setPrice] = useState([10000])
+  // const [type, setType] = useState([])
 
   useEffect(() => {
     axios.get(`${baseUrl}cities/${id}`)
@@ -21,14 +27,45 @@ function CitiesDetailsPage({baseUrl}) {
     .catch(err=>console.log(err))
   }, [])
 
+  useEffect(() => {
+    axios.get(`${baseUrl}properties/city/${id}`)
+    .then(res=>{setCityProperties(res.data.response)})
+    .catch(err=>console.log(err))
+  }, [])
+
+  const bedroomFilter=(e)=>{
+    setBedroom(e.target.value)
+  }
+
+  const bathroomFilter=(e)=>{
+    setBathroom(e.target.value)
+  }
+
+  const priceFilter=(e)=>{
+    setPrice(e.target.value)
+  }
+
+  // const typeFilter=(e)=>{
+  //   setType(e.target.value)
+  // }
+
   return (
     <div className='cities-details-container'>
 
         <Banner bannerHeader={bannerHeader} bannerText={bannerText}/>
 
-        <AccommodationFilter/>
+        <AccommodationFilter bedroomFilter={bedroomFilter} bathroomFilter={bathroomFilter} priceFilter={priceFilter}/>
 
-        <AccommodationList baseUrl={baseUrl} cityDetails={cityDetails}/>
+        <div className='acc-container'>
+          <h1>{cityProperties.length} homes in {cityDetails.name}</h1>
+          <div className='card-container'>
+          {
+              cityProperties.filter(item=>item.bedroom_count >= bedroom && item.bathroom_count >= bathroom && item.rent <= price).map((item)=>{
+                  return <AccommodationCard item={item} key={item._id}/>
+              })
+          }
+          </div>
+        </div>
 
         <div className='students'>
           <div className='students-left'>
