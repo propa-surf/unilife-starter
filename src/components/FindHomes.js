@@ -6,6 +6,7 @@ function FindHomes({baseUrl}) {
 
   const [city, setCity] = useState([])
   const [filterCity, setFilterCity] = useState([])
+  const [bedroomFilter, setBedroomFilter] = useState()
 
   useEffect(()=>{
     axios.get(`${baseUrl}cities?limit=20`)
@@ -14,8 +15,11 @@ function FindHomes({baseUrl}) {
   },[])
 
   const handlerFilterCity=(event)=>{
-    console.log(filterCity)
     setFilterCity(event.target.value)
+  }
+
+  const handlerBedroomFilter=(e)=>{
+    setBedroomFilter(e.target.value)
   }
 
   return (
@@ -30,7 +34,7 @@ function FindHomes({baseUrl}) {
             })
           }
         </select>
-        <select className='select-bedrooms'>
+        <select className='select-bedrooms' onChange={handlerBedroomFilter}>
           <option value="">Bedrooms</option>
           <option>1</option>
           <option>2</option>
@@ -38,9 +42,11 @@ function FindHomes({baseUrl}) {
           <option>4</option>
           <option>5</option>
           <option>6</option>
-          <option>7+</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
         </select>
-        <a href={filterCity=='' ? '' : `/citydetails/${filterCity}`} className="find">Find Homes</a>
+        <a href={filterCity=='' ? '' : `/citydetails/${filterCity}/${bedroomFilter}`} className="find">Find Homes</a>
       </div>
   )
 }

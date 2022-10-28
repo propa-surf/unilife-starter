@@ -33,7 +33,7 @@ function AccommodationCard({item}) {
       </div>
       <div className='click-container'>
         <button className='shortlist-btn'><AiOutlineHeart/> Shortlist</button>
-        <a href='/homedetails' className='view'><AiOutlineHome/> View Home</a>
+        <a href={`/homedetails/${item._id}`} className='view'><AiOutlineHome/> View Home</a>
       </div>
     </div>
   )

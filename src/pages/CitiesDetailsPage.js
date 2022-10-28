@@ -6,7 +6,6 @@ import Students from '../assets/students.png'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import AccommodationCard from '../components/AccommodationCard'
-// import AccommodationList from '../components/AccommodationList'
 
 function CitiesDetailsPage({baseUrl}) {
 
@@ -16,33 +15,41 @@ function CitiesDetailsPage({baseUrl}) {
   const {id} = useParams()
   const [cityDetails, setCityDetails] = useState({})
   const [cityProperties, setCityProperties] = useState([])
-  const [bedroom, setBedroom] = useState([])
-  const [bathroom, setBathroom] = useState([])
-  const [price, setPrice] = useState([10000])
+  const [allProperties, setAllProperties] = useState([])
   // const [type, setType] = useState([])
 
   useEffect(() => {
     axios.get(`${baseUrl}cities/${id}`)
-    .then(res => {setCityDetails(res.data.data[0])})
+    .then(res => 
+      {
+        setCityDetails(res.data.data[0])
+      })
     .catch(err=>console.log(err))
   }, [])
 
   useEffect(() => {
     axios.get(`${baseUrl}properties/city/${id}`)
-    .then(res=>{setCityProperties(res.data.response)})
+    .then(res=>
+      {
+        setCityProperties(res.data.response)
+        setAllProperties(res.data.response)
+      })
     .catch(err=>console.log(err))
   }, [])
 
   const bedroomFilter=(e)=>{
-    setBedroom(e.target.value)
+    let filterBed = allProperties.filter(item=>item.bedroom_count >= e.target.value)
+    setCityProperties(filterBed)
   }
 
   const bathroomFilter=(e)=>{
-    setBathroom(e.target.value)
+    let filterBath = allProperties.filter(item=>item.bathroom_count >= e.target.value)
+    setCityProperties(filterBath)
   }
 
   const priceFilter=(e)=>{
-    setPrice(e.target.value)
+    let filterPrice = allProperties.filter(item=>item.rent <= e.target.value)
+    setCityProperties(filterPrice)
   }
 
   // const typeFilter=(e)=>{
@@ -60,7 +67,7 @@ function CitiesDetailsPage({baseUrl}) {
           <h1>{cityProperties.length} homes in {cityDetails.name}</h1>
           <div className='card-container'>
           {
-              cityProperties.filter(item=>item.bedroom_count >= bedroom && item.bathroom_count >= bathroom && item.rent <= price).map((item)=>{
+              cityProperties.map((item)=>{
                   return <AccommodationCard item={item} key={item._id}/>
               })
           }

@@ -11,14 +11,16 @@ function AccommodationFilter({bedroomFilter, bathroomFilter, priceFilter, typeFi
       <div className='bedroom-container'>
         <label for="select-bedrooms">Bedroom</label>
         <select className='select-bedrooms' onChange={bedroomFilter}>
-          <option value="">Bedroom</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
+          <option value=''>Bedroom</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+          <option value={9}>9</option>
         </select>
       </div>
       
@@ -35,7 +37,7 @@ function AccommodationFilter({bedroomFilter, bathroomFilter, priceFilter, typeFi
       <div className='max-price-container'>
         <label for='select-max-price'>Max Price</label>
         <select className='select-max-price' onChange={priceFilter}>
-          <option value={10000}>Max Price</option>
+          <option value={100000}>Max Price</option>
           <option>500</option>
           <option>1000</option>
           <option>1500</option>
