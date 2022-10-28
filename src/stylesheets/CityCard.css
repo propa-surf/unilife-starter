@@ -30,6 +30,12 @@
     z-index: 1;
 }
 
+@media (min-width: 1684px){
+    .last-card{
+        display:none;
+    }
+}
+
 @media (max-width: 1252px){
     .last-card{
         display:none;

@@ -25,7 +25,7 @@ function Homepage({baseUrl}) {
 
       <TopCities baseUrl={baseUrl}/>
 
-      <a href='/allcities'><button className='see-all-cities'>See All Cities</button></a>
+      <a href='/allcities' className='see-all-cities'>See All Cities</a>
 
       <div className='explanation'>
         <h2 className='explanation-header'>Compare all inclusive student homes.</h2>

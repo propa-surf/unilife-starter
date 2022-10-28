@@ -1,3 +1,21 @@
+.acc-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    grid-gap: 20px 30px;
+    justify-items: center;
+}
+
 .cities-details-container{
     display: flex;
     flex-direction: column;
@@ -6,7 +24,7 @@
 
 .students{
     background-color: var(--secondary-color-bg);
-    width: 80%;
+    width: 90%;
     border-radius: 16px;
     margin: 40px 0px;
     display: flex;
@@ -19,7 +37,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 50%;
     margin: 16px 16px;
 }
 
@@ -34,7 +52,7 @@
 }
 
 .students img{
-    width: 60%;
+    width: 50%;
     margin: 48px;
     border-radius: 16px;
 }

@@ -5,6 +5,8 @@ import '../stylesheets/FindHomes.css'
 function FindHomes({baseUrl}) {
 
   const [city, setCity] = useState([])
+  const [filterCity, setFilterCity] = useState([])
+  const [bedroomFilter, setBedroomFilter] = useState()
 
   useEffect(()=>{
     axios.get(`${baseUrl}cities?limit=20`)
@@ -12,9 +14,17 @@ function FindHomes({baseUrl}) {
     .catch(err=>console.log(err))
   },[])
 
+  const handlerFilterCity=(event)=>{
+    setFilterCity(event.target.value)
+  }
+
+  const handlerBedroomFilter=(e)=>{
+    setBedroomFilter(e.target.value)
+  }
+
   return (
-      <form className='find-homes-container'>
-        <select className='select-city-homes' required>
+      <div className='find-homes-container'>
+        <select className='select-city-homes' onChange={handlerFilterCity}>
           <option value="">Search by city</option>
           {
             city.map((item)=>{
@@ -24,7 +34,7 @@ function FindHomes({baseUrl}) {
             })
           }
         </select>
-        <select className='select-bedrooms'>
+        <select className='select-bedrooms' onChange={handlerBedroomFilter}>
           <option value="">Bedrooms</option>
           <option>1</option>
           <option>2</option>
@@ -32,12 +42,13 @@ function FindHomes({baseUrl}) {
           <option>4</option>
           <option>5</option>
           <option>6</option>
-          <option>7+</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
         </select>
-        <button className="submit" type="submit" value="submit">Find Homes</button>
-      </form>
+        <a href={filterCity=='' ? '' : `/citydetails/${filterCity}/${bedroomFilter}`} className="find">Find Homes</a>
+      </div>
   )
 }
-
 
 export default FindHomes

@@ -18,8 +18,11 @@ function App() {
         <Routes>
             <Route path='/' element={<HomePage baseUrl={baseUrl}/>}/>
             <Route path='/allcities' element={<SeeAllCitiesPage baseUrl={baseUrl}/>}/>
-            <Route path='/citydetails' element={<CitiesDetailsPage baseUrl={baseUrl}/>}/>
-            <Route path='/homedetails' element={<HomeDetailPage baseUrl={baseUrl}/>}/>
+            <Route path='/citydetails'>
+              <Route path='/citydetails/:id' element={<CitiesDetailsPage baseUrl={baseUrl}/>}/>
+              <Route path='/citydetails/:id/:filterBedroom' element={<CitiesDetailsPage baseUrl={baseUrl}/>}/>
+            </Route>
+            <Route path='/homedetails/:propertyID' element={<HomeDetailPage baseUrl={baseUrl}/>}/>
         </Routes>
         <Footer/>
     </BrowserRouter>

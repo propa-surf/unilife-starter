@@ -1,0 +1,32 @@
+.propertyContainer{
+    display: grid;
+    grid-template-areas:
+    'link .' 
+    'slider card'
+    'des bed'
+    'key .';
+}
+
+.link{
+    grid-area: link;
+}
+
+.slider{
+    grid-area: slider;
+}
+
+.propertyCard{
+    grid-area: card;
+}
+
+.description{
+    grid-area: des;
+}
+
+.bedroomPrices{
+    grid-area: bed;
+}
+
+.keyFeatures{
+    grid-area: key;
+}
