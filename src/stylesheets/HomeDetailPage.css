@@ -32,10 +32,10 @@
     grid-area: des;
 }
 
-.bedroomPrices{
+.bedroom-prices{
     grid-area: bed;
 }
 
-.keyFeatures{
+.key-features{
     grid-area: key;
 }

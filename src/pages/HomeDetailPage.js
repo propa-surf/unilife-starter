@@ -11,6 +11,8 @@ function HomeDetailPage({baseUrl}) {
   const [cityID, setCityID] = useState()
   const {propertyID} = useParams()
   const [propertyImages, setPropertyImages] = useState([])
+  const [keyFeatures, setKeyFeatures] = useState([])
+  const [bedroomPrice, setBedroomPrice] = useState({})
 //   const [picIndex, setPicIndex] = useState(0)
 
   useEffect(()=>{
@@ -19,6 +21,8 @@ function HomeDetailPage({baseUrl}) {
       setProperty(res.data)
       setCityID(res.data.city_id._id)
       setPropertyImages(res.data.images)
+      setKeyFeatures(res.data.key_features)
+      setBedroomPrice(res.data.bedroom_prices)
     })
     .catch(err=>console.log(err))
   }, [])
@@ -41,9 +45,23 @@ function HomeDetailPage({baseUrl}) {
       <div className='property-card'>
         <PropertyCard property={property}/>
       </div>
-      <div className='description'>Description</div>
-      <div className='bedroomPrices'>Bedroom Prices</div>
-      <div className='keyFeatures'>Key Features</div>
+      <div className='description'>
+        <h2 className='description-header'>Description</h2>
+        <p className='description-text'>{property?.property_description}</p>
+      </div>
+      <div className='bedroom-prices'>
+        <h2 className='bedroom-prices-header'>Bedroom Prices</h2>
+      </div>
+      <div className='key-features'>
+        <h2 className='key-features-header'>Key Features</h2>
+        <ul className='key-features-points'>
+            {
+                keyFeatures.map((item, index)=>{
+                    return <li key={index}>{item}</li>
+                })
+            }
+        </ul>
+      </div>
     </div>
 
   )
