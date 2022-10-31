@@ -11,36 +11,43 @@ function HomeDetailPage({baseUrl}) {
   const [cityID, setCityID] = useState()
   const {propertyID} = useParams()
   const [propertyImages, setPropertyImages] = useState([])
+  const [allImages, setAllImages] = useState([])
   const [keyFeatures, setKeyFeatures] = useState([])
   const [bedroomPrice, setBedroomPrice] = useState({})
-//   const [picIndex, setPicIndex] = useState(0)
 
   useEffect(()=>{
     axios.get(`${baseUrl}properties/${propertyID}`)
     .then(res=>{
       setProperty(res.data)
       setCityID(res.data.city_id._id)
-      setPropertyImages(res.data.images)
+      setPropertyImages(res.data.images[0])
+      setAllImages(res.data.images)
       setKeyFeatures(res.data.key_features)
       setBedroomPrice(res.data.bedroom_prices)
     })
     .catch(err=>console.log(err))
   }, [])
 
-//   const sliderHandler=(i)=>{
-//     setPicIndex(i)
-//   }
+  const sliderHandler=(i)=>{
+    let image = allImages[i]
+    setPropertyImages(image)
+  }
 
   return(
     <div className='propertyContainer'>
       <a href={`/citydetails/${cityID}`} className='link'>Back to Search</a>
 
       <div className='slider'>
-        {
-            propertyImages.map(item=>{
-                return <img src={item} alt='Property Pic'/>
-            })
-        }
+        <div className='big'>
+            <img src={propertyImages} alt='Property Pic'/>
+        </div>
+        <div className='small'>
+            {
+                allImages.map((item, index)=>{
+                    return <img src={item} key={index} onClick={item => sliderHandler(index)} alt='Property Pic'/>
+                })
+            }
+        </div>
       </div>
       <div className='property-card'>
         <PropertyCard property={property}/>
