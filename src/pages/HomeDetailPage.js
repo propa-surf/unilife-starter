@@ -3,7 +3,7 @@ import '../stylesheets/HomeDetailPage.css'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import PropertyCard from '../components/PropertyCard'
-import Modal from 'react-modal'
+import BookingView from '../components/BookingView'
 
 
 function HomeDetailPage({baseUrl}) {
@@ -79,10 +79,7 @@ function HomeDetailPage({baseUrl}) {
             }
         </ul>
       </div>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className='book-viewing-modal'>
-        <p>TEST</p>
-        <button onClick={closeModal}>Cancel</button>
-      </Modal>
+      <BookingView modalIsOpen={modalIsOpen} closeModal={closeModal} property={property}/>
     </div>
 
   )
