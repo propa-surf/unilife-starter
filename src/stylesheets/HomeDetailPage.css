@@ -1,7 +1,7 @@
 .propertyContainer{
     display: grid;
     grid: auto / 50% 50%;
-    grid-gap: 20px 20px;
+    grid-gap: 30px 40px;
     grid-template-areas:
     'link .' 
     'slider card'

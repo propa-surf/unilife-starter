@@ -3,6 +3,7 @@ import '../stylesheets/HomeDetailPage.css'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import PropertyCard from '../components/PropertyCard'
+import Modal from 'react-modal'
 
 
 function HomeDetailPage({baseUrl}) {
@@ -14,6 +15,7 @@ function HomeDetailPage({baseUrl}) {
   const [allImages, setAllImages] = useState([])
   const [keyFeatures, setKeyFeatures] = useState([])
   const [bedroomPrice, setBedroomPrice] = useState({})
+  const[modalIsOpen, setModalIsOpen] = useState(false)
 
   useEffect(()=>{
     axios.get(`${baseUrl}properties/${propertyID}`)
@@ -33,6 +35,14 @@ function HomeDetailPage({baseUrl}) {
     setPropertyImages(image)
   }
 
+  function openModal(){
+    setModalIsOpen(true)
+  }
+
+  function closeModal(){
+    setModalIsOpen(false)
+  }
+
   return(
     <div className='propertyContainer'>
       <a href={`/citydetails/${cityID}`} className='link'>Back to Search</a>
@@ -50,7 +60,7 @@ function HomeDetailPage({baseUrl}) {
         </div>
       </div>
       <div className='property-card'>
-        <PropertyCard property={property}/>
+        <PropertyCard property={property} openModal={openModal}/>
       </div>
       <div className='description'>
         <h2 className='description-header'>Description</h2>
@@ -69,6 +79,10 @@ function HomeDetailPage({baseUrl}) {
             }
         </ul>
       </div>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className='book-viewing-modal'>
+        <p>TEST</p>
+        <button onClick={closeModal}>Cancel</button>
+      </Modal>
     </div>
 
   )

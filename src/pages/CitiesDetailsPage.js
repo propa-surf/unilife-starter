@@ -6,13 +6,14 @@ import Students from '../assets/students.png'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import AccommodationCard from '../components/AccommodationCard'
+import { IoCloudyNightOutline } from 'react-icons/io5'
 
 function CitiesDetailsPage({baseUrl}) {
 
   const bannerHeader = 'Search Accommodation'
   const bannerText = 'Whatever you’re after, we can help you find the right student accommodation for you. '
 
-  const {id} = useParams()
+  const {id, filterBedroom} = useParams()
   const [cityDetails, setCityDetails] = useState({})
   const [cityProperties, setCityProperties] = useState([])
   const [allProperties, setAllProperties] = useState([])
@@ -61,7 +62,7 @@ function CitiesDetailsPage({baseUrl}) {
 
         <Banner bannerHeader={bannerHeader} bannerText={bannerText}/>
 
-        <AccommodationFilter bedroomFilter={bedroomFilter} bathroomFilter={bathroomFilter} priceFilter={priceFilter}/>
+        <AccommodationFilter filterBedroom={filterBedroom} bedroomFilter={bedroomFilter} bathroomFilter={bathroomFilter} priceFilter={priceFilter}/>
 
         <div className='acc-container'>
           <h1>{cityProperties.length} homes in {cityDetails.name}</h1>

@@ -1,11 +1,11 @@
 import React from 'react'
 import '../stylesheets/PropertyCard.css'
 
-function PropertyCard({property}) {
+function PropertyCard({property, openModal}) {
 
   return (
-    <div className='card-container'>
-        <div className='property-card-container'>
+    <div className='property-card-container'>
+        <div className='property-container-single'>
             <h2>{property?.address?.street}, {property?.address?.city}, {property?.address?.postcode}</h2>
         </div>
         <div className='stats'>
@@ -36,7 +36,7 @@ function PropertyCard({property}) {
         </div>
         <div className='buttons'>
             <button className='shortlist-btn-pty'>Shortlist</button>
-            <button className='booking-btn-pty'>Book Viewing</button>
+            <button className='booking-btn-pty' onClick={openModal}>Book Viewing</button>
         </div>
     </div>
   )
