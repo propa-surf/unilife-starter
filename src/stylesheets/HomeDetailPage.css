@@ -1,7 +1,7 @@
 .propertyContainer{
     display: grid;
     grid: auto / 50% 50%;
-    grid-gap: 30px 40px;
+    grid-gap: 40px 40px;
     grid-template-areas:
     'link .' 
     'slider card'
@@ -55,4 +55,36 @@
 
 .key-features{
     grid-area: key;
+}
+
+.description-header, .bedroom-prices-header, .key-features-header{
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--dark-blue);
+}
+
+.description-text{
+    width: 80%;
+}
+
+.bedroom-prices-container{
+    border: solid 1px var(--secondary-color-text);
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.bedroom-prices-container p{
+    margin-bottom: 16px;
+}
+
+.key-features-points p{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.check-mark{
+    margin-right: 8px;
+    color: var(--light-blue);
+    font-size: 24px;
 }

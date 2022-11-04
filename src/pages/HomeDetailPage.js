@@ -4,6 +4,7 @@ import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import PropertyCard from '../components/PropertyCard'
 import BookingView from '../components/BookingView'
+import { AiFillCheckCircle } from "react-icons/ai";
 
 
 function HomeDetailPage({baseUrl}) {
@@ -68,13 +69,20 @@ function HomeDetailPage({baseUrl}) {
       </div>
       <div className='bedroom-prices'>
         <h2 className='bedroom-prices-header'>Bedroom Prices</h2>
+        <div className='bedroom-prices-container'>
+        {
+          Object.values(bedroomPrice).map((item, index) =>{
+            return <p key={index}>Bedroom {index+1} {item}</p>
+          })
+        }
+        </div>
       </div>
       <div className='key-features'>
         <h2 className='key-features-header'>Key Features</h2>
         <ul className='key-features-points'>
             {
                 keyFeatures.map((item, index)=>{
-                    return <li key={index}>{item}</li>
+                    return <p key={index}><AiFillCheckCircle className='check-mark'/> {item}</p>
                 })
             }
         </ul>
