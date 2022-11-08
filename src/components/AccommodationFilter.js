@@ -1,7 +1,9 @@
 import '../stylesheets/AccommodationFilter.css'
+import {useNavigate} from 'react-router-dom'
 
-function AccommodationFilter({filterBedroom, bedroomFilter, bathroomFilter, priceFilter, typeFilter}) {
+function AccommodationFilter({id, filterBedroom, bedroomFilter, bathroomFilter, priceFilter, typeFilter, filterProperties}) {
 
+  const navigate = useNavigate()
   const bedroomOptions = [1,2,3,4,5,6,7,8,9]
   const priceOptions = [1000,1500,2000,2500,3000]
 
@@ -11,7 +13,9 @@ function AccommodationFilter({filterBedroom, bedroomFilter, bathroomFilter, pric
       
       <div className='bedroom-container'>
         <label htmlFor="select-bedrooms">Bedroom</label>
-        <select defaultValue={+filterBedroom} className='select-bedrooms' onChange={bedroomFilter}>
+        <select defaultValue={+filterBedroom} className='select-bedrooms' onChange={(e) => {
+          navigate(`/citydetails/${id}/${e.target.value}`)
+        }}>
           <option value=''>Bedroom</option>
           {
             bedroomOptions.map(item=>{
@@ -43,7 +47,7 @@ function AccommodationFilter({filterBedroom, bedroomFilter, bathroomFilter, pric
         </select>
       </div>
       
-      <div className='home-type-container'>
+      {/* <div className='home-type-container'>
         <label hmtlFor='select-home-type' onChange={typeFilter}>Home Type</label>
         <select className='select-home-type'>
           <option value="">Home Type</option>
@@ -54,7 +58,7 @@ function AccommodationFilter({filterBedroom, bedroomFilter, bathroomFilter, pric
           <option>Semi-Detached</option>
           <option>Apartment</option>
         </select>
-      </div>
+      </div> */}
       
     </div>
 )

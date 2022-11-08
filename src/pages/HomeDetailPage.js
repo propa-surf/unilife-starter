@@ -67,16 +67,7 @@ function HomeDetailPage({baseUrl}) {
         <h2 className='description-header'>Description</h2>
         <p className='description-text'>{property?.property_description}</p>
       </div>
-      <div className='bedroom-prices'>
-        <h2 className='bedroom-prices-header'>Bedroom Prices</h2>
-        <div className='bedroom-prices-container'>
-        {
-          Object.values(bedroomPrice).map((item, index) =>{
-            return <p key={index}>Bedroom {index+1} {item}</p>
-          })
-        }
-        </div>
-      </div>
+
       <div className='key-features'>
         <h2 className='key-features-header'>Key Features</h2>
         <ul className='key-features-points'>
@@ -87,6 +78,18 @@ function HomeDetailPage({baseUrl}) {
             }
         </ul>
       </div>
+
+      <div className='bedroom-prices'>
+        <h2 className='bedroom-prices-header'>Bedroom Prices</h2>
+        <div className='bedroom-prices-container'>
+        {
+          Object.values(bedroomPrice).map((item, index) =>{
+            return <p key={index}>Bedroom {index+1} {item}</p>
+          })
+        }
+        </div>
+      </div>
+     
       <BookingView modalIsOpen={modalIsOpen} closeModal={closeModal} property={property}/>
     </div>
 

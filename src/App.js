@@ -14,7 +14,7 @@ function App() {
 
   return (
     <BrowserRouter>
-        <Header/>
+        <Header className='header'/>
         <Routes>
             <Route path='/' element={<HomePage baseUrl={baseUrl}/>}/>
             <Route path='/allcities' element={<SeeAllCitiesPage baseUrl={baseUrl}/>}/>

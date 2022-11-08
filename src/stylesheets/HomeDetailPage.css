@@ -5,8 +5,8 @@
     grid-template-areas:
     'link .' 
     'slider card'
-    'des bed'
-    'key .';
+    'des key'
+    'bed .';
     padding: 40px 80px;
 }
 
@@ -67,16 +67,6 @@
     width: 80%;
 }
 
-.bedroom-prices-container{
-    border: solid 1px var(--secondary-color-text);
-    border-radius: 16px;
-    padding: 8px;
-}
-
-.bedroom-prices-container p{
-    margin-bottom: 16px;
-}
-
 .key-features-points p{
     display: flex;
     align-items: center;
@@ -87,4 +77,18 @@
     margin-right: 8px;
     color: var(--light-blue);
     font-size: 24px;
+}
+
+.bedroom-prices-container{
+    border: solid 1px var(--secondary-color-text);
+    border-radius: 16px;
+    padding: 8px;
+    width: 60%;
+}
+
+.bedroom-prices-container p{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    width: 100%
 }

@@ -6,7 +6,6 @@ import Students from '../assets/students.png'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import AccommodationCard from '../components/AccommodationCard'
-import { IoCloudyNightOutline } from 'react-icons/io5'
 
 function CitiesDetailsPage({baseUrl}) {
 
@@ -17,7 +16,6 @@ function CitiesDetailsPage({baseUrl}) {
   const [cityDetails, setCityDetails] = useState({})
   const [cityProperties, setCityProperties] = useState([])
   const [allProperties, setAllProperties] = useState([])
-  // const [type, setType] = useState([])
 
   useEffect(() => {
     axios.get(`${baseUrl}cities/${id}`)
@@ -36,33 +34,38 @@ function CitiesDetailsPage({baseUrl}) {
         setAllProperties(res.data.response)
       })
     .catch(err=>console.log(err))
-  }, [])
+   }, [])
 
-  const bedroomFilter=(e)=>{
-    let filterBed = allProperties.filter(item=>item.bedroom_count >= e.target.value)
-    setCityProperties(filterBed)
-  }
-
-  const bathroomFilter=(e)=>{
-    let filterBath = allProperties.filter(item=>item.bathroom_count >= e.target.value)
-    setCityProperties(filterBath)
-  }
-
-  const priceFilter=(e)=>{
-    let filterPrice = allProperties.filter(item=>item.rent <= e.target.value)
-    setCityProperties(filterPrice)
-  }
-
-  // const typeFilter=(e)=>{
-  //   setType(e.target.value)
+  // const bathroomFilter=(e)=>{
+  //   let filterBath = allProperties.filter(item=>item.bathroom_count >= e.target.value)
   // }
+
+  // const priceFilter=(e)=>{
+  //   let filterPrice = allProperties.filter(item=>item.rent <= e.target.value)
+  // }
+
+  const filterProperties=()=>{
+    const query={
+      city_id:id,
+      bedroom_count:filterBedroom,
+      // bathroom_count:filterBath,
+      // rent:filterPrice
+    }
+    axios.post(`https://unilife-server.herokuapp.com/properties/filter`,{query})
+    .then(res=>{
+     setCityProperties(res.data.response)
+    })
+    .catch(err=>console.log(err))
+ }
 
   return (
     <div className='cities-details-container'>
 
         <Banner bannerHeader={bannerHeader} bannerText={bannerText}/>
 
-        <AccommodationFilter filterBedroom={filterBedroom} bedroomFilter={bedroomFilter} bathroomFilter={bathroomFilter} priceFilter={priceFilter}/>
+        <AccommodationFilter filterBedroom={filterBedroom} id={id} filterProperties={filterProperties}/>
+
+        {/* bathroomFilter={bathroomFilter} priceFilter={priceFilter} */}
 
         <div className='acc-container'>
           <h1>{cityProperties.length} homes in {cityDetails.name}</h1>
