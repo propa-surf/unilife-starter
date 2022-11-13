@@ -1,11 +1,24 @@
 import '../stylesheets/AccommodationFilter.css'
 import {useNavigate} from 'react-router-dom'
+import React, {useState} from 'react'
 
-function AccommodationFilter({id, filterBedroom, bedroomFilter, bathroomFilter, priceFilter, typeFilter, filterProperties}) {
+function AccommodationFilter({id, filterBedroom, filterProperties}) {
 
   const navigate = useNavigate()
   const bedroomOptions = [1,2,3,4,5,6,7,8,9]
   const priceOptions = [1000,1500,2000,2500,3000]
+  const [bathroom, setBathroom] = useState()
+  const [price, setPrice] = useState()
+
+  const valueBathroom=(e)=>{
+    setBathroom(e.target.value)
+    filterProperties(bathroom, price)
+  }
+
+  const valuePrice=(e)=>{
+    setPrice(e.target.value)
+    filterProperties(bathroom, price)
+  }
 
   return(
 
@@ -27,7 +40,7 @@ function AccommodationFilter({id, filterBedroom, bedroomFilter, bathroomFilter, 
       
       <div className='bathroom-container'>
         <label htmlFor="select-bathrooms">Bathroom</label>
-        <select className='select-bathrooms' onChange={bathroomFilter}>
+        <select className='select-bathrooms' onChange={valueBathroom}>
           <option value="">Bathroom</option>
           <option>1</option>
           <option>2</option>
@@ -37,7 +50,7 @@ function AccommodationFilter({id, filterBedroom, bedroomFilter, bathroomFilter, 
       
       <div className='max-price-container'>
         <label htmlFor='select-max-price'>Max Price</label>
-        <select className='select-max-price' onChange={priceFilter}>
+        <select className='select-max-price' onChange={valuePrice}>
           <option value={100000}>Max Price</option>
           {
             priceOptions.map(item=>{

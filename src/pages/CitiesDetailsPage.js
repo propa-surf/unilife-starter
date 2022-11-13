@@ -36,24 +36,16 @@ function CitiesDetailsPage({baseUrl}) {
     .catch(err=>console.log(err))
    }, [])
 
-  // const bathroomFilter=(e)=>{
-  //   let filterBath = allProperties.filter(item=>item.bathroom_count >= e.target.value)
-  // }
-
-  // const priceFilter=(e)=>{
-  //   let filterPrice = allProperties.filter(item=>item.rent <= e.target.value)
-  // }
-
-  const filterProperties=()=>{
+  const filterProperties=(bathroom, price)=>{
     const query={
       city_id:id,
       bedroom_count:filterBedroom,
-      // bathroom_count:filterBath,
-      // rent:filterPrice
+      bathroom_count:bathroom,
+      rent:price
     }
     axios.post(`https://unilife-server.herokuapp.com/properties/filter`,{query})
     .then(res=>{
-     setCityProperties(res.data.response)
+      setCityProperties(res.data.response)
     })
     .catch(err=>console.log(err))
  }
@@ -64,8 +56,6 @@ function CitiesDetailsPage({baseUrl}) {
         <Banner bannerHeader={bannerHeader} bannerText={bannerText}/>
 
         <AccommodationFilter filterBedroom={filterBedroom} id={id} filterProperties={filterProperties}/>
-
-        {/* bathroomFilter={bathroomFilter} priceFilter={priceFilter} */}
 
         <div className='acc-container'>
           <h1>{cityProperties.length} homes in {cityDetails.name}</h1>
