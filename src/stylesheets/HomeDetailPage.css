@@ -1,10 +1,13 @@
 .propertyContainer{
     display: grid;
+    grid: auto / 50% 50%;
+    grid-gap: 40px 40px;
     grid-template-areas:
     'link .' 
     'slider card'
-    'des bed'
-    'key .';
+    'des key'
+    'bed .';
+    padding: 40px 80px;
 }
 
 .link{
@@ -13,9 +16,32 @@
 
 .slider{
     grid-area: slider;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.propertyCard{
+.big{
+    text-align: center;
+    margin-bottom: 10px
+}
+
+.big img{
+    width:100%;
+    border-radius: 16px;
+}
+
+.small{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.small img{
+    width: 24%;
+    border-radius: 8px;
+}
+
+.property-card{
     grid-area: card;
 }
 
@@ -23,10 +49,92 @@
     grid-area: des;
 }
 
-.bedroomPrices{
+.bedroom-prices{
     grid-area: bed;
 }
 
-.keyFeatures{
+.key-features{
     grid-area: key;
 }
+
+.description-header, .bedroom-prices-header, .key-features-header{
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--dark-blue);
+}
+
+.description-text{
+    width: 80%;
+}
+
+.key-features-points p{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.check-mark{
+    margin-right: 8px;
+    color: var(--light-blue);
+    font-size: 24px;
+}
+
+.bedroom-prices-container{
+    border: solid 1px var(--secondary-color-text);
+    border-radius: 16px;
+    padding: 8px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bedroom-prices-property{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    border-bottom: solid 1px var(--secondary-color-text);
+}
+
+.last-bedroom-prices-property{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
+@media (max-width: 825px){
+
+    .propertyContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 40px 40px;
+    }
+
+    .property-card{
+        margin-top: 24px;
+    }
+
+    .description{
+        margin-top: 32px;
+        text-align: center;
+    }
+
+    .description-text{
+        width: 100%;
+    }
+
+    .key-features{
+        margin-top: 32px;
+        text-align: center;
+    }
+
+    .bedroom-prices-container{
+        width: 100%;
+        margin-top: 32px;
+    }
+    
+    }

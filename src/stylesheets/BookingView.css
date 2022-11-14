@@ -1,0 +1,121 @@
+.book-viewing-modal{
+    position: fixed;
+    top: 150px;
+    left: 30%;
+    width: 40%;
+    background-color: var(--bg-white);
+    border: solid 1px var(--secondary-color-text);
+    border-radius: 16px;
+}
+
+.booking-view-container{
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+}
+
+.booking-view-top-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.booking-view-header-and-address{
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-view-header-and-address h2{
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.booking-view-header-and-address p{
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.booking-view-icon{
+    color: var(--dark-blue);
+    font-size: 48px;
+}
+
+.booking-view-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.booking-view-contact-details{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.booking-view-contact-details label{
+    margin-bottom: 4px;
+}
+
+.booking-view-name, .booking-view-email, .booking-view-phone{
+    margin-bottom: 16px;
+    padding: 8px 4px;
+    border-radius: 8px;
+    border: solid 1px var(--secondary-color-text);
+}
+
+.booking-view-name::placeholder, .booking-view-email::placeholder, .booking-view-phone::placeholder{
+    color: var(--secondary-color-text);
+}
+
+.booking-view-message-submit{
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-view-message-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 41px;
+}
+
+.booking-view-message-container label{
+    margin-bottom: 4px;
+}
+
+.booking-view-message{
+    padding: 4px 4px;
+    border-radius: 8px;
+    border: solid 1px var(--secondary-color-text);
+}
+
+.booking-view-message::placeholder{
+    font-family: 'Inter', sans-serif;
+    color: var(--secondary-color-text);
+}
+
+.booking-view-submit-btn{
+    padding: 8px 0px ;
+    background-color: var(--dark-blue);
+    color: var(--text-white);
+    border: none;
+    border-radius: 8px;
+}
+
+@media (max-width: 1000px){
+
+    .book-viewing-modal{
+        top: 80px;
+        left: 25%;
+        width: 50%;
+    }
+
+    .booking-view-form{
+        flex-direction: column;
+    }
+
+    .booking-view-contact-details{
+        width: 100%;
+    }
+    
+    }

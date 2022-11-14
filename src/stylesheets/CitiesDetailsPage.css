@@ -56,3 +56,22 @@ h1{
     margin: 48px;
     border-radius: 16px;
 }
+
+@media (max-width: 825px){
+
+    .students{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .students-left{
+        width: 100%;
+    }
+
+    .students img{
+        width: 80%;
+    }
+    
+    }

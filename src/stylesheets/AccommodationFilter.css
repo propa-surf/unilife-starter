@@ -3,7 +3,6 @@
     position: relative;
     bottom: 50px;
     max-width: 98%;
-    height: 100px;
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -38,18 +37,26 @@
     border-color: var(--secondary-color-text);
 }
 
-@media (max-width: 480px){
-    
+@media (max-width: 825px){
+
     .filter-container{
-        bottom: 80px;
-        width: 275px;
-        height: 165px;
+        bottom: 78px;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .select-bedrooms, .select-bathrooms, .select-max-price, .select-home-type{
-        margin-right: 0px;
+    .filter-container label{
+        display: none;
+    }
+
+    .bedroom-container, .bathroom-container{
         margin-bottom: 8px;
     }
 
-}
+    .select-bedrooms, .select-bathrooms, .select-max-price{
+        margin-right: 0px;
+    }
+    
+    }

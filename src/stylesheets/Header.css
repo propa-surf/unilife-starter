@@ -41,3 +41,7 @@
     position: relative;
     top: 2px;
 }
+
+.contact-us-overlay{
+    z-index: 2;
+}
