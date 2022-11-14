@@ -36,6 +36,7 @@ function CitiesDetailsPage({baseUrl}) {
     .catch(err=>console.log(err))
    }, [])
 
+
   const filterProperties=(bathroom, price)=>{
     const query={
       city_id:id,
@@ -49,6 +50,7 @@ function CitiesDetailsPage({baseUrl}) {
     })
     .catch(err=>console.log(err))
  }
+
 
   return (
     <div className='cities-details-container'>

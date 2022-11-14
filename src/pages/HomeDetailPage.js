@@ -84,7 +84,10 @@ function HomeDetailPage({baseUrl}) {
         <div className='bedroom-prices-container'>
         {
           Object.values(bedroomPrice).map((item, index) =>{
-            return <p key={index}>Bedroom {index+1} {item}</p>
+            return <div key={index} className={index===Object.values(bedroomPrice).length-1 ? 'bedroom-prices-property last-bedroom-prices-property' : 'bedroom-prices-property'}>
+                    <p>Bedroom {index+1}</p>
+                    <p>{item}</p>
+                   </div>
           })
         }
         </div>

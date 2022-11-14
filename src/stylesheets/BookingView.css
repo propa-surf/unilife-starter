@@ -11,7 +11,7 @@
 .booking-view-container{
     display: flex;
     flex-direction: column;
-    padding: 32px 16px;
+    padding: 24px 16px;
 }
 
 .booking-view-top-container{
@@ -101,3 +101,21 @@
     border: none;
     border-radius: 8px;
 }
+
+@media (max-width: 1000px){
+
+    .book-viewing-modal{
+        top: 80px;
+        left: 25%;
+        width: 50%;
+    }
+
+    .booking-view-form{
+        flex-direction: column;
+    }
+
+    .booking-view-contact-details{
+        width: 100%;
+    }
+    
+    }

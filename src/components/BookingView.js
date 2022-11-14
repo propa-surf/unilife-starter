@@ -31,7 +31,7 @@ function BookingView({modalIsOpen, closeModal, property}) {
             <div className='booking-view-message-submit'>
               <div className='booking-view-message-container'>
                 <label htmlFor='booking-view-message'>Message</label>
-                <textarea className='booking-view-message' placeholder='Enter your message' rows='6' cols='30'/>
+                <textarea className='booking-view-message' placeholder='Enter your message' rows='6' cols='25'/>
               </div>
               <button type='submit' className='booking-view-submit-btn'>Submit</button>
             </div>

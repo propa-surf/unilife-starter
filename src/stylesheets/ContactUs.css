@@ -101,3 +101,21 @@
     border: none;
     border-radius: 8px;
 }
+
+@media (max-width: 1000px){
+
+    .contact-us-modal{
+        top: 80px;
+        left: 25%;
+        width: 50%;
+    }
+
+    .contact-us-form{
+        flex-direction: column;
+    }
+
+    .contact-us-contact-details{
+        width: 100%;
+    }
+    
+    }

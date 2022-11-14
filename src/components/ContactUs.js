@@ -30,7 +30,7 @@ Looking forward to hear from you.</p>
                 <div className='contact-us-message-submit'>
                 <div className='contact-us-message-container'>
                     <label htmlFor='contact-us-message'>Message</label>
-                    <textarea className='contact-us-message' placeholder='Enter your message' rows='6' cols='30'/>
+                    <textarea className='contact-us-message' placeholder='Enter your message' rows='6' cols='25'/>
                 </div>
                 <button type='submit' className='contact-us-submit-btn'>Submit</button>
                 </div>
