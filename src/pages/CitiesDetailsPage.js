@@ -15,7 +15,6 @@ function CitiesDetailsPage({baseUrl}) {
   const {id, filterBedroom} = useParams()
   const [cityDetails, setCityDetails] = useState({})
   const [cityProperties, setCityProperties] = useState([])
-  const [allProperties, setAllProperties] = useState([])
 
   useEffect(() => {
     axios.get(`${baseUrl}cities/${id}`)
@@ -31,18 +30,17 @@ function CitiesDetailsPage({baseUrl}) {
     .then(res=>
       {
         setCityProperties(res.data.response)
-        setAllProperties(res.data.response)
       })
     .catch(err=>console.log(err))
    }, [])
 
 
-  const filterProperties=(bathroom, price)=>{
+   const filterProperties=(bedroom,bathroom,price)=>{
     const query={
       city_id:id,
-      bedroom_count:filterBedroom,
+      bedroom_count:bedroom,
       bathroom_count:bathroom,
-      rent:price
+      rent:price 
     }
     axios.post(`https://unilife-server.herokuapp.com/properties/filter`,{query})
     .then(res=>{
